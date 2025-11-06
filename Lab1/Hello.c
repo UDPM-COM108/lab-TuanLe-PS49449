@@ -1,14 +1,14 @@
-#include <stdio.h>
-    int main()
+#include <stdio.h> // Thư viện
+
+int main()
 {
-  int x; // Le Nguyen Anh Tuan - PS49449//
-  int y;
-
-  printf("Nhap vao hai so nguyen: ");
-  scanf("%d %d", &x, &y);
-
-  char name[30];
-  printf("nhap ten cua ban: ");
-  scanf("%s", &name);
+  // printf("Hello World"); // xuat ra man hinh Hello World
+  // // printf("\nHello World");
+  int a, b;
+  printf("Nhap a va b:");
+  printf("%d %d", &a, &b);
+  printf("Nhap vao ten toi:");
+  scanf("%s",a);
+  printf("\nXin chao toi ten la: %s",a);
   return 0;
 }
