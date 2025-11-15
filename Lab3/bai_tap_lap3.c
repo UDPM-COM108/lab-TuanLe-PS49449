@@ -1,5 +1,5 @@
 /* Bai 1: XAY DUNG CHUONG TRINH TINH HOC LUC
-   (kept as comment; not compiled) 
+   (kept as comment; not compiled)
 #include <stdio.h>
 
 int main_example1(void) {
@@ -25,13 +25,13 @@ int main_example1(void) {
 // #include <stdio.h>
 
 // int main() {
-//     float a, b;
+//     dou a, b;
 //     printf("Nhap a, b: ");
 //     if (scanf("%lf %lf", &a, &b) !=1) return 1;
 //     if (a == 0) {
 //         if (b == 0)
 //             printf("Phuong trinh vo so nghiem\n");
-//         else 
+//         else
 //             printf("Phuong trinh vo nghiem\n");
 //     } else {
 //         float x = -b / a;
@@ -48,26 +48,36 @@ int main_example1(void) {
 // {
 //     float a, b, c;
 //     printf("Nhap a, b, c: ");
-//     if (scanf("%lf %lf %lf", &a, &b, &c) != 3) return 1;
-//     if (a == 0) {
+//     if (scanf("%lf %lf %lf", &a, &b, &c) != 3)
+//         return 1;
+//     if (a == 0)
+//     {
 //         // PT trở thành bậc nhất
-//         if (b == 0) {
+//         if (b == 0)
+//         {
 //             if (c == 0)
 //                 printf("Phuong trinh vo so nghiem\n");
 //             else
 //                 printf("Phuong trinh vo nghiem\n");
-//         } else {
+//         }
+//         else
+//         {
 //             float x = -c / b;
 //             printf("Phuong trinh co 1 nghiem: x = %.2f\n", x);
 //         }
-//     } else {
+//     }
+//     else
+//     {
 //         float delta = b * b - 4 * a * c;
 //         if (delta < 0)
 //             printf("Phuong trinh vo nghiem\n");
-//         else if (delta == 0) {
+//         else if (delta == 0)
+//         {
 //             float x = -b / (2 * a);
 //             printf("Phuong trinh co nghiem kep: x = %.2f\n", x);
-//         } else {
+//         }
+//         else
+//         {
 //             float x1 = (-b + sqrt(delta)) / (2 * a);
 //             float x2 = (-b - sqrt(delta)) / (2 * a);
 //             printf("Phuong trinh co hai nghiem rieng biet:\n");
@@ -78,24 +88,27 @@ int main_example1(void) {
 //     return 0;
 // }
 
-
-// Bai 4: TINH TIEN LUONG NHAN VIEN //
+// Bai 4: XÂY DỰNG MENU CHƯƠNG TRÌNH cho các bài tập trên //
 #include <stdio.h>
 #include <math.h>
 
 int main()
 {
-    int choice;
-    do {
-        printf("\n===== MENU =====\n");
-        printf("1. Tinh hoc luc\n");
-        printf("2. Giai phuong trinh bac 1\n");
-        printf("3. Giai phuong trinh bac 2\n");
-        printf("4. Thoat\n");
-        printf("Chon chuc nang: ");
-        scanf("%d", &choice);
+    int input;
+    printf("MENU CHUONG TRINH\n");
+    printf("1. Tinh hoc luc\n");
+    printf("2. Giai phuong trinh bac 1\n");
+    printf("3. Giai phuong trinh bac 2\n");
+    printf("4. Thoat\n");
+    printf("Chon chuc nang: ");
+    scanf("%d", &input);
 
-        if (choice == 1) {
+    do
+    {
+        switch (input)
+        {
+        case 1:
+        {
             float dtb;
             printf("Nhap diem trung binh: ");
             scanf("%f", &dtb);
@@ -110,45 +123,61 @@ int main()
                 printf("Hoc luc: Trung Binh\n");
             else
                 printf("Hoc luc: Yeu\n");
-        } else if (choice == 2) {
+        }
+        case 2:
+        {
             float a, b;
             printf("Nhap a, b: ");
             scanf("%f %f", &a, &b);
 
-            if (a == 0) {
+            if (a == 0)
+            {
                 if (b == 0)
                     printf("Phuong trinh vo so nghiem\n");
                 else
                     printf("Phuong trinh vo nghiem\n");
-            } else {
+            }
+            else
+            {
                 printf("Nghiem: x = %.2f\n", -b / a);
             }
-        } else if (choice == 3) {
+        }
+        case 3:
+        {
             float a, b, c;
             printf("Nhap a, b, c: ");
-            if (scanf("%f %f %f", &a, &b, &c) != 3) return 1;
-            if (a == 0) {
-                if (b == 0) {
+            if (scanf("%f %f %f", &a, &b, &c) != 3)
+                return 1;
+            if (a == 0)
+            {
+                if (b == 0)
+                {
                     if (c == 0)
                         printf("Phuong trinh vo so nghiem\n");
                     else
                         printf("Phuong trinh vo nghiem\n");
-                } else {
+                }
+                else
+                {
                     printf("Nghiem: x = %.2f\n", -c / b);
                 }
-            } else {
+            }
+            else
+            {
                 float delta = b * b - 4 * a * c;
                 if (delta < 0)
                     printf("Phuong trinh vo nghiem\n");
                 else if (delta == 0)
                     printf("Nghiem kep: x = %.2f\n", -b / (2 * a));
-                else {
+                else
+                {
                     float x1 = (-b + sqrt(delta)) / (2 * a);
                     float x2 = (-b - sqrt(delta)) / (2 * a);
                     printf("x1 = %.2f, x2 = %.2f\n", x1, x2);
                 }
             }
         }
-    } while (choice != 4);
+        }
+    } while (input > 5);
     return 0;
 }
