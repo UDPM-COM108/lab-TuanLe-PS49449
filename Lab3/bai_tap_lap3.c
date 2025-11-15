@@ -99,7 +99,7 @@ int main()
     printf("1. Tinh hoc luc\n");
     printf("2. Giai phuong trinh bac 1\n");
     printf("3. Giai phuong trinh bac 2\n");
-    printf("4. Thoat\n");
+    printf("0. Thoat\n");
     printf("Chon chuc nang: ");
     scanf("%d", &input);
 
@@ -176,6 +176,12 @@ int main()
                     printf("x1 = %.2f, x2 = %.2f\n", x1, x2);
                 }
             }
+        }
+        case 0:
+        {
+            printf("Cảm ơn bạn và hẹn gặp lại.\n");
+            break;
+            return 0;
         }
         }
     } while (input > 5);
