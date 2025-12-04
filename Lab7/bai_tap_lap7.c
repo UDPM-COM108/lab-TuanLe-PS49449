@@ -1,53 +1,77 @@
-// BÀI 1: XÂY DỰNG CHƯƠNG TRÌNH ĐẾM NGUYÊN ÂM VÀ PHỤ ÂM CỦA 1
+// Bai 1: Dem nguyen am va phu am
 #include <stdio.h>
-#include <string.h>
 #include <ctype.h>
+#include <string.h>
 
-int main()
-{
-  char str[100];
-  int nguyenAm = 0, phuAm = 0;
+void bai1(){
+  char str[200];
+  int vowel = 0, consonant = 0;
 
   printf("Nhap chuoi: ");
   fgets(str, sizeof(str), stdin);
 
-  for (int i = 0; i < strlen(str); i++)
+  for (int i = 0; str[i] != '\0'; i++)
   {
-    char ch = tolower(str[i]);
-    if ((ch >= 'a' && ch <= 'z'))
-    { // kiểm tra có phải chữ cái không
-      if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
-        nguyenAm++;
+    char c = tolower(str[i]);
+    if (isalpha(c))
+    {
+      if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+        vowel++;
       else
-        phuAm++;
+        consonant++;
     }
   }
 
-  printf("So nguyen am: %d\n", nguyenAm);
-  printf("So phu am: %d\n", phuAm);
-
-  return 0;
+  printf("So nguyen am: %d\n", vowel);
+  printf("So phu am: %d\n", consonant);
 }
 
-// BÀI 2: XÂY DỰNG CHƯƠNG TRÌNH ĐĂNG NHẬP BẰNG USERNAME VÀ PASSWORD
-#include <stdio.h>
-#include <string.h>
 
-int main()
+// Bai 2: Chương trình đăng nhập
+void bai2()
 {
-  char user[30], pass[30];
-  char userDung[] = "admin";
-  char passDung[] = "12345";
+  char username[50], password[50];
+  char user_correct[] = "admin";
+  char pass_correct[] = "123456";
 
   printf("Nhap username: ");
-  scanf("%s", user);
+  scanf("%s", username);
+
   printf("Nhap password: ");
-  scanf("%s", pass);
+  scanf("%s", password);
 
-  if (strcmp(user, userDung) == 0 && strcmp(pass, passDung) == 0)
+  if (strcmp(username, user_correct) == 0 && strcmp(password, pass_correct) == 0)
+  {
     printf("Dang nhap thanh cong!\n");
+  }
   else
-    printf("Dang nhap khong thanh cong!\n");
+  {
+    printf("Dang nhap that bai!\n");
+  }
+}
 
-  return 0;
+// Bai 3: Tìm kí tự xuất hiện hơn 2 lần trong chuỗi
+void bai3()
+{
+  char str[200];
+  int freq[256] = {0};
+
+  getchar(); // Xóa bộ nhớ đệm sau scanf ở bài 2
+  printf("Nhap chuoi bat ky: ");
+  fgets(str, sizeof(str), stdin);
+
+  for (int i = 0; str[i] != '\0'; i++)
+  {
+    unsigned char c = str[i];
+    freq[c]++;
+  }
+
+  printf("Cac ky tu xuat hien hon 2 lan:\n");
+  for (int i = 0; i < 256; i++)
+  {
+    if (freq[i] > 2 && i != '\n')
+    {
+      printf("'%c' xuat hien %d lan\n", i, freq[i]);
+    }
+  }
 }
